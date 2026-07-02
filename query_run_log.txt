@@ -1,0 +1,84 @@
+=== a1_select_where_orderby ===
+-- Completed orders in 2024, most recent first
+Columns: ['order_id', 'customer_id', 'order_date', 'status']
+Rows returned: 12
+
+=== a2_groupby_status ===
+-- Order count per status
+Columns: ['status', 'total_orders']
+Rows returned: 3
+
+=== a3_where_subquery_avg ===
+-- Products priced above average price
+Columns: ['product_name', 'price']
+Rows returned: 6
+
+=== b1_inner_join ===
+-- INNER JOIN: order line items with product & customer names
+Columns: ['order_id', 'customer_name', 'product_name', 'quantity', 'unit_price']
+Rows returned: 12
+
+=== b2_left_join ===
+-- LEFT JOIN: all customers with their order counts
+Columns: ['customer_id', 'name', 'order_count']
+Rows returned: 12
+
+=== b3_right_join ===
+-- RIGHT JOIN: all products with total quantity sold
+Columns: ['product_name', 'total_sold']
+Rows returned: 12
+
+=== c1_subquery_above_avg_spend ===
+-- Customers who spent more than the average customer
+Columns: ['name', 'total_spent']
+Rows returned: 12
+
+=== c2_subquery_top5_products ===
+-- Top 5 best-selling products by revenue
+Columns: ['product_name', 'revenue']
+Rows returned: 5
+
+=== c3_correlated_subquery_last_order_cancelled ===
+-- Customers whose most recent order was Cancelled
+Columns: ['name', 'order_date', 'status']
+Rows returned: 8
+
+=== d1_aggregate_overall ===
+-- Total revenue, avg order-line value, order count (completed orders)
+Columns: ['total_orders', 'total_revenue', 'avg_line_value']
+Rows returned: 1
+
+=== d2_avg_revenue_per_user ===
+-- Average revenue per user
+Columns: ['avg_revenue_per_user']
+Rows returned: 1
+
+=== d3_revenue_by_category ===
+-- Revenue by category
+Columns: ['category_name', 'category_revenue', 'orders_containing_category']
+Rows returned: 5
+
+=== d4_having_avg_price ===
+-- Categories where avg product price > 800 (HAVING)
+Columns: ['category_name', 'min_price', 'max_price', 'avg_price']
+Rows returned: 4
+
+=== e1_view_customer_ltv ===
+-- VIEW: customer_lifetime_value (top 10)
+Columns: ['customer_id', 'name', 'lifetime_value', 'completed_orders']
+Rows returned: 10
+
+=== e2_view_monthly_sales ===
+-- VIEW: monthly_sales_summary
+Columns: ['sales_month', 'orders', 'revenue']
+Rows returned: 19
+
+=== f1_create_indexes ===
+-- Creating indexes for optimization
+Columns: ['name']
+Rows returned: 4
+
+=== f2_explain_query_plan ===
+-- EXPLAIN QUERY PLAN using the new indexes
+Columns: ['id', 'parent', 'notused', 'detail']
+Rows returned: 1
